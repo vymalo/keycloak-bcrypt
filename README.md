@@ -1,21 +1,26 @@
 # Keycloak Bcrypt
 
-bcrypt is a password-hashing function 
-designed by Niels Provos and David Mazières, 
-based on the Blowfish cipher and presented 
-at USENIX in 1999 (Thanks, 
-[Wikipedia](https://en.wikipedia.org/wiki/Bcrypt)).
+## ⚠️ Depreciation notice ⚠️
+![img.png](img.png)
 
-Natively, Keycloak does not support Bcrypt.
-So you may need this plugin to add a 
-new PasswordHashProvider, now using it.
+I'm not working on this plugin anymore, because I think, given the direction Keycloak is taking, it would be better to have this functionality as an external service, outside Keycloak.
 
-For more information about this SPI, 
-please take a look at [this class](https://www.keycloak.org/docs-api/11.0/javadocs/org/keycloak/credential/hash/PasswordHashProvider.html)
-and [this other page from keycloak's doc](https://www.keycloak.org/docs/latest/server_development).
-
+I suggest implementing an SPI for user and user credentials. Then call an external service with those credentials and force https.
 
 ## Usage
-1. Download [keycloak-bcrypt-1.0.0.jar](https://github.com/bayamsell/keycloak-bcrypt/releases/download/v1.0.0/keycloak-bcrypt-1.0.0.jar)
-2. Now, add it files into `/providers` folder of your keycloak.
-3. Start your Keycloak
+
+After you'll install this, you'll be able to choose this Hash provider as default in the console. Keep in mind [this article](https://security.stackexchange.com/questions/133239/what-is-the-specific-reason-to-prefer-bcrypt-or-pbkdf2-over-sha256-crypt-in-pass), where the question about bcrypt or PBKDF2 over SHA256-crypt is discussed. Please read it, before using this plugin.
+
+This plugin might be useful if you imported your users from a system who have Bcrypt as password hashing provider.
+
+## Under the hood
+
+1. Password Hash Provider.
+2. Bcrypt from [patrickfav](https://github.com/patrickfav/bcrypt).
+
+These providers are used to keep the plugin configuration running.
+
+## Links
+
+- https://medium.com/nerd-for-tech/sha-2-and-bcrypt-encryption-algorithms-e0c0599b0da
+- https://stackoverflow.com/questions/64063528/failsafe-error-invalid-signature-file-digest-for-manifest-main-attributes-whe
