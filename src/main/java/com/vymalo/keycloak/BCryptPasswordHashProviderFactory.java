@@ -1,4 +1,4 @@
-package com.bayamsell.keycloak;
+package com.vymalo.keycloak;
 
 import org.keycloak.Config;
 import org.keycloak.credential.hash.PasswordHashProvider;
@@ -20,7 +20,7 @@ public class BCryptPasswordHashProviderFactory implements PasswordHashProviderFa
     private static final Map<String, String> infos = new HashMap<>();
 
     static {
-        infos.put("version", "1.0.0");
+        infos.put("version", "2.0.0");
     }
 
     @Override
