@@ -10,7 +10,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <lombock.version>1.18.26</lombock.version>
+        <lombock.version>1.18.28</lombock.version>
         <keycloak.version>21.0.1</keycloak.version>
     </properties>
 
